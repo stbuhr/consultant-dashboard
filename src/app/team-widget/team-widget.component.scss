@@ -1,0 +1,31 @@
+:host {
+  display: block;
+}
+
+.module {
+  min-height: 18rem;
+  padding: 0;
+  transition: scale 0.5s ease-in-out;
+  cursor: pointer;
+
+  h3 {
+    color: var(--active-foreground);
+    background-color: var(--active-background);
+    padding: 0.5rem;
+    margin: 0;
+    border-radius: 5px 5px 0 0;
+    transition: background-color 0.5s;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+}
+
+.module.pulsing > h3 {
+  background-color: var(--disabled-background);
+}
+
+.module:hover {
+  scale: 1.05;
+}

@@ -1,0 +1,12 @@
+<div class="block preview">
+  <div class="header">
+    <h2>Program Leadership Teamentwicklung</h2>
+    <p class="subtitle">Gestartet am 08.04.2024</p>
+  </div>
+
+  <div class="content">
+    @for (widgetInfo of widgetInfos; track $index) {
+    <app-team-widget [widgetInfo]="widgetInfo"></app-team-widget>
+    }
+  </div>
+</div>

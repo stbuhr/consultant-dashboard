@@ -1,0 +1,54 @@
+:host {
+  display: block;
+}
+
+.profile-table {
+  display: grid;
+  grid-template-columns: 6fr 1fr 1fr 1fr 1fr;
+
+  .header,
+  .row {
+    font-size: 0.8rem;
+  }
+
+  .header,
+  .row,
+  .field {
+    background-color: var(--light-background);
+    padding: 4px;
+    margin: 2px 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--default-background);
+  }
+
+  .header,
+  .field {
+    text-align: center;
+  }
+
+  .low {
+    background-color: var(--low-level);
+    color: white;
+  }
+  .medium {
+    background-color: var(--medium-level);
+    color: white;
+  }
+  .high {
+    background-color: var(--high-level);
+    color: white;
+  }
+  .very-high {
+    background-color: var(--very-high-level);
+    color: white;
+  }
+
+  div:nth-child(5n) {
+    border-radius: 0 4px 4px 0;
+  }
+
+  div:nth-child(5n - 4) {
+    border-radius: 4px 0 0 4px;
+  }
+}

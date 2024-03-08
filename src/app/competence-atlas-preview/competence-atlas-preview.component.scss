@@ -1,0 +1,143 @@
+:host {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding-top: 1rem;
+}
+
+.header {
+  text-align: center;
+}
+
+.preview-frame {
+  margin: 1rem auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: 160px;
+
+  .field {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--medium-level);
+    border: 1px solid white;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: white;
+  }
+
+  .p {
+    background-color: color-mix(
+      in hsl,
+      var(--low-level) 39%,
+      var(--very-high-level)
+    );
+  }
+  .pa {
+    background-color: color-mix(
+      in hsl,
+      var(--low-level) 44%,
+      var(--very-high-level)
+    );
+  }
+  .ap {
+    background-color: color-mix(
+      in hsl,
+      var(--low-level) 50%,
+      var(--very-high-level)
+    );
+  }
+  .a {
+    background-color: color-mix(
+      in hsl,
+      var(--low-level) 56%,
+      var(--very-high-level)
+    );
+  }
+  .ps {
+    background-color: color-mix(
+      in hsl,
+      var(--low-level) 53%,
+      var(--very-high-level)
+    );
+  }
+  .pf {
+    background-color: color-mix(
+      in hsl,
+      var(--low-level) 34%,
+      var(--very-high-level)
+    );
+  }
+  .as {
+    background-color: color-mix(
+      in hsl,
+      var(--low-level) 64%,
+      var(--very-high-level)
+    );
+  }
+  .af {
+    background-color: color-mix(
+      in hsl,
+      var(--low-level) 45%,
+      var(--very-high-level)
+    );
+  }
+  .sp {
+    background-color: color-mix(
+      in hsl,
+      var(--low-level) 67%,
+      var(--very-high-level)
+    );
+  }
+  .sa {
+    background-color: color-mix(
+      in hsl,
+      var(--low-level) 72%,
+      var(--very-high-level)
+    );
+  }
+  .fp {
+    background-color: color-mix(
+      in hsl,
+      var(--low-level) 30%,
+      var(--very-high-level)
+    );
+  }
+  .fa {
+    background-color: color-mix(
+      in hsl,
+      var(--low-level) 35%,
+      var(--very-high-level)
+    );
+  }
+  .s {
+    background-color: color-mix(
+      in hsl,
+      var(--low-level) 81%,
+      var(--very-high-level)
+    );
+  }
+  .sf {
+    background-color: color-mix(
+      in hsl,
+      var(--low-level) 62%,
+      var(--very-high-level)
+    );
+  }
+  .fs {
+    background-color: color-mix(
+      in hsl,
+      var(--low-level) 44%,
+      var(--very-high-level)
+    );
+  }
+  .f {
+    background-color: color-mix(
+      in hsl,
+      var(--low-level) 25%,
+      var(--very-high-level)
+    );
+  }
+}
