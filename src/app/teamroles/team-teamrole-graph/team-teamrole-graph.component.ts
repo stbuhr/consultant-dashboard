@@ -3,7 +3,10 @@ import {
   ChangeDetectionStrategy,
   Component,
   OnInit,
+  Signal,
+  WritableSignal,
   input,
+  signal,
 } from '@angular/core';
 import { TranslocoService } from '../../transloco.service';
 
@@ -38,6 +41,7 @@ export interface Segment {
   startAngle: number;
   endAngle: number;
   parts: SegmentPart[];
+  isSelected: WritableSignal<boolean>;
 }
 
 export interface Point {
@@ -78,6 +82,10 @@ export class TeamTeamroleGraphComponent implements OnInit {
 
   width = input(160);
   height = input(160);
+
+  title = signal('Teamrole');
+  value = signal('0 von 0');
+  percentage = signal('0%');
 
   get segments(): Segment[] {
     return this._segments;
@@ -148,6 +156,7 @@ export class TeamTeamroleGraphComponent implements OnInit {
           importance: 1,
         },
       ],
+      isSelected: signal(false),
     };
   }
 
@@ -191,9 +200,33 @@ export class TeamTeamroleGraphComponent implements OnInit {
     return `M 0 0 L ${firstPoint.x} ${firstPoint.y} L ${secondPoint.x} ${secondPoint.y} Z`;
   }
 
+  getDescriptionPath(): string {
+    var path = this.segments
+      .slice(0, this.segments.length - 1)
+      .map((segment) => this.getPoint(segment.radius, segment.startAngle))
+      .map((point) => `L ${point.x} ${point.y}`)
+      .join(' ');
+    return `M ${path.substring(1)} Z`;
+  }
+
   getCirclePoint(segment: Segment): Point {
     const angle = (segment.startAngle + segment.endAngle) / 2;
     const point = this.getPoint(segment.radius * 1.25, angle);
     return point;
+  }
+
+  showDetails(segment: Segment): void {
+    segment.isSelected.set(true);
+    this.title.set(segment.text);
+    this.value.set(`${segment.value} von ${this._sumValue}`);
+    this.percentage.set(
+      `${((segment.value / this._sumValue) * 100).toFixed(0)}%`
+    );
+  }
+
+  hideDetails(): void {
+    this.segments.forEach((segment) => {
+      segment.isSelected.set(false);
+    });
   }
 }

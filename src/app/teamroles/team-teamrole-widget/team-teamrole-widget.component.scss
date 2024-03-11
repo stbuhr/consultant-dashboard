@@ -1,6 +1,14 @@
 :host {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.5rem;
+  gap: 12px;
   padding-top: 1rem;
+}
+
+.header {
+  text-align: center;
+}
+
+.graph {
+  margin: 1rem auto;
 }

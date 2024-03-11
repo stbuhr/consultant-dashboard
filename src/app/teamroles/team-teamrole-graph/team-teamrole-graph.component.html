@@ -22,6 +22,13 @@
       [class.lowlevel]="isLowLevel(segment)"
     />
     <circle
+      class="background-circle"
+      [attr.r]="width() / 7"
+      [attr.cx]="getCirclePoint(segment).x"
+      [attr.cy]="getCirclePoint(segment).y"
+    />
+    <circle
+      class="teamrole-circle"
       [attr.r]="width() / 7"
       [attr.cx]="getCirclePoint(segment).x"
       [attr.cy]="getCirclePoint(segment).y"
@@ -29,6 +36,9 @@
       [class.highlevel]="isHighLevel(segment)"
       [class.mediumlevel]="isMediumLevel(segment)"
       [class.lowlevel]="isLowLevel(segment)"
+      [class.highlighted]="segment.isSelected()"
+      (mouseenter)="showDetails(segment)"
+      (mouseleave)="hideDetails()"
     />
     <text
       class="teamrole-label"
@@ -38,4 +48,8 @@
       {{ segment.text.substring(0, 1).toUpperCase() }}
     </text>
   </g>
+  <path class="description-background" [attr.d]="getDescriptionPath()" />
+  <text class="teamrole-name description">{{ title() }}</text>
+  <text class="teamrole-value description" y="-40">{{ value() }}</text>
+  <text class="teamrole-percentage description" y="40">{{ percentage() }}</text>
 </svg>

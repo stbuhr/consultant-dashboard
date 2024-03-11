@@ -7,6 +7,58 @@
   text-anchor: middle;
   alignment-baseline: central;
   font-size: 28px;
+  pointer-events: none;
+}
+
+.teamrole-circle {
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+path.description-background {
+  fill: var(--disabled-background);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.teamrole-name {
+  font-size: 28px;
+  font-weight: 500;
+}
+
+svg:has(circle.teamrole-circle.highlighted)
+  circle.teamrole-circle:not(.highlighted) {
+  opacity: 0;
+}
+
+.teamrole-value {
+  font-size: 24px;
+}
+
+.teamrole-percentage {
+  font-size: 24px;
+}
+
+svg:has(circle.teamrole-circle.highlighted) path.description-background {
+  opacity: 1;
+}
+
+.description {
+  text-anchor: middle;
+  alignment-baseline: central;
+  fill: var(--text-color);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+svg:has(circle.teamrole-circle.highlighted) .description {
+  opacity: 1;
+}
+
+.background-circle {
+  fill: var(--disabled-background);
 }
 
 .veryhighlevel {
