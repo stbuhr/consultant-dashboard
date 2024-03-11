@@ -7,13 +7,33 @@
   padding: 0;
   transition: scale 0.3s ease-in-out;
 
-  h3 {
+  .header {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 0.5rem;
     color: var(--active-foreground);
     background-color: var(--active-background);
-    padding: 0.5rem;
-    margin: 0;
     border-radius: 5px 5px 0 0;
     transition: background-color 0.5s;
+    padding: 0.5rem;
+
+    h3 {
+      margin: 0;
+    }
+
+    .self-assessment {
+      width: 24px;
+      height: 24px;
+      background-image: url(/assets/symbols/self-assessment.svg);
+      background-size: 24px;
+    }
+
+    .assessment-by-others {
+      width: 24px;
+      height: 24px;
+      background-image: url(/assets/symbols/assessment-by-others.svg);
+      background-size: 24px;
+    }
   }
 
   .content {

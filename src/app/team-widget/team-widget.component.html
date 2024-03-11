@@ -1,5 +1,9 @@
 <div class="block module">
-  <h3>{{ title() }}</h3>
+  <div class="header">
+    <h3>{{ title() }}</h3>
+    <div class="self-assessment"></div>
+    <div class="assessment-by-others"></div>
+  </div>
   <div class="content">
     @switch (widgetInfo().type) { @case ('TeamCompetenceProfile') {
     <app-team-competence-profile-widget></app-team-competence-profile-widget>
