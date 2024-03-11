@@ -22,6 +22,14 @@
     border-color: var(--default-background);
   }
 
+  .sub {
+    font-size: 0.7rem;
+  }
+
+  .row.sub {
+    text-indent: 1rem;
+  }
+
   .header,
   .field {
     text-align: center;
