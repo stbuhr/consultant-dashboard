@@ -1,0 +1,41 @@
+<svg
+  id="teamrole-graph"
+  width="160px"
+  height="160px"
+  viewBox="-150 -150 300 300"
+>
+  <rect x="-150" y="-150" width="300" height="300" fill="white" />
+
+  <g *ngFor="let segment of segments">
+    <path
+      *ngFor="let part of segment.parts"
+      fill="#FFFFFF"
+      stroke="rgb(150, 150, 150)"
+      [attr.stroke-width]="200 / width()"
+      [attr.d]="getPath(segment, part)"
+    />
+    <path
+      [attr.d]="getValuePath(segment)"
+      [class.veryhighlevel]="isVeryHighLevel(segment)"
+      [class.highlevel]="isHighLevel(segment)"
+      [class.mediumlevel]="isMediumLevel(segment)"
+      [class.lowlevel]="isLowLevel(segment)"
+    />
+    <circle
+      [attr.r]="width() / 7"
+      [attr.cx]="getCirclePoint(segment).x"
+      [attr.cy]="getCirclePoint(segment).y"
+      [class.veryhighlevel]="isVeryHighLevel(segment)"
+      [class.highlevel]="isHighLevel(segment)"
+      [class.mediumlevel]="isMediumLevel(segment)"
+      [class.lowlevel]="isLowLevel(segment)"
+    />
+    <text
+      class="teamrole-label"
+      [attr.x]="getCirclePoint(segment).x"
+      [attr.y]="getCirclePoint(segment).y"
+    >
+      {{ segment.text.substring(0, 1).toUpperCase() }}
+    </text>
+  </g>
+</svg>

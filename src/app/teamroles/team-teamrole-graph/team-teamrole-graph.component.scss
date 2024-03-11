@@ -1,0 +1,26 @@
+:host {
+  display: block;
+}
+
+.teamrole-label {
+  fill: white;
+  text-anchor: middle;
+  alignment-baseline: central;
+  font-size: 28px;
+}
+
+.veryhighlevel {
+  fill: var(--very-high-level);
+}
+
+.highlevel {
+  fill: var(--high-level);
+}
+
+.mediumlevel {
+  fill: var(--medium-level);
+}
+
+.lowlevel {
+  fill: var(--low-level);
+}
