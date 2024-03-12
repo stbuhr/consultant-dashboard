@@ -2,11 +2,14 @@
   display: block;
 }
 
+svg {
+  font-size: 1.4em;
+}
+
 .teamrole-label {
   fill: white;
   text-anchor: middle;
   alignment-baseline: central;
-  font-size: 28px;
   pointer-events: none;
 }
 
@@ -23,21 +26,12 @@ path.description-background {
 }
 
 .teamrole-name {
-  font-size: 28px;
   font-weight: 500;
 }
 
 svg:has(circle.teamrole-circle.highlighted)
   circle.teamrole-circle:not(.highlighted) {
   opacity: 0;
-}
-
-.teamrole-value {
-  font-size: 28px;
-}
-
-.teamrole-percentage {
-  font-size: 28px;
 }
 
 svg:has(circle.teamrole-circle.highlighted) path.description-background {

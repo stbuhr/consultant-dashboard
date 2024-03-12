@@ -1,12 +1,12 @@
 <div class="selection">
-  <div class="select-comparison">
-    <input type="checkbox" id="select-comparison" checked="comparison()" />
-    <label for="select-comparison">{{ comparisonTitle }}</label>
-  </div>
-  <div class="select-type">
-    <input type="checkbox" id="select-type" />
-    <label for="select-type">Selbsteinschätzungen</label>
-  </div>
+  <app-switch
+    leftOption="Bedingungen"
+    rightOption="Selbst-/Fremdeinschätzungen"
+  ></app-switch>
+  <app-switch
+    leftOption="Selbsteinschätzungen"
+    rightOption="Fremdeinschätzungen"
+  ></app-switch>
 </div>
 <div class="comparison">
   <div class="header">Günstige Bedingungen</div>

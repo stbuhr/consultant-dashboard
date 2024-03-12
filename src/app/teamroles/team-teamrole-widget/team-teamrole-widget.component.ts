@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { TeamTeamroleGraphComponent } from '../team-teamrole-graph/team-teamrole-graph.component';
+import { SwitchComponent } from '../../switch/switch.component';
 
 @Component({
   selector: 'app-team-teamrole-widget',
   standalone: true,
-  imports: [CommonModule, TeamTeamroleGraphComponent],
+  imports: [CommonModule, TeamTeamroleGraphComponent, SwitchComponent],
   templateUrl: './team-teamrole-widget.component.html',
   styleUrl: './team-teamrole-widget.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
