@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="-150 -150 300 300" fill="transparent" stroke="white" stroke-width="0">
+  <circle r="44" cy="-40" fill="white" />
+  <path d="M -80 80 Q -80 25 0 25 Q 80 25 80 80 Z" fill="white" />
+  
+  <path d="M 0 -103 L -40 -133 -15 -133 -15 -148 15 -148 15 -133 40 -133 Z" fill="white" />
+  <path d="M 0 103 L -40 133 -15 133 -15 148 15 148 15 133 40 133 Z" fill="white" />
+  <path d="M -100 0 L -130 -40 -130 -15 -145 -15 -145 15 -130 15 -130 40 Z" fill="white" />
+  <path d="M 100 0 L 130 -40 130 -15 145 -15 145 15 130 15 130 40 Z" fill="white" />
+</svg>
