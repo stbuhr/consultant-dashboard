@@ -16,14 +16,17 @@ export class ProgramPreviewComponent {
     {
       title: 'Team-Kompetenzprofil',
       type: 'TeamCompetenceProfile',
+      url: '#',
     },
     {
       title: 'Team-Kompetenzatlas',
       type: 'TeamCompetenceAtlas',
+      url: '#',
     },
     {
       title: 'Teamrolle',
       type: 'TeamTeamrole',
+      url: '#',
     },
   ];
 }

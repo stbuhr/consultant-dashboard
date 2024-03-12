@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { TeamTeamroleGraphComponent } from '../team-teamrole-graph/team-teamrole-graph.component';
 
 @Component({
@@ -10,4 +10,7 @@ import { TeamTeamroleGraphComponent } from '../team-teamrole-graph/team-teamrole
   styleUrl: './team-teamrole-widget.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TeamTeamroleWidgetComponent {}
+export class TeamTeamroleWidgetComponent {
+  comparison = signal<boolean>(false);
+  comparisonTitle = 'Vergleich Bedingungen';
+}

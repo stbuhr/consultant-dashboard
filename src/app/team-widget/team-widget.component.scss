@@ -3,14 +3,13 @@
 }
 
 .module {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   min-height: 18rem;
   padding: 0;
   transition: scale 0.3s ease-in-out;
 
   .header {
-    display: grid;
-    grid-template-columns: 1fr auto auto;
-    gap: 0.5rem;
     color: var(--active-foreground);
     background-color: var(--active-background);
     border-radius: 5px 5px 0 0;
@@ -20,24 +19,16 @@
     h3 {
       margin: 0;
     }
-
-    .self-assessment {
-      width: 24px;
-      height: 24px;
-      background-image: url(/assets/symbols/self-assessment.svg);
-      background-size: 24px;
-    }
-
-    .assessment-by-others {
-      width: 24px;
-      height: 24px;
-      background-image: url(/assets/symbols/assessment-by-others.svg);
-      background-size: 24px;
-    }
   }
 
   .content {
     padding: 1rem;
+  }
+
+  .footer {
+    text-align: right;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
   }
 }
 

@@ -1,14 +1,27 @@
 :host {
+  padding-top: 0.5rem;
+}
+
+.selection {
+  font-size: 0.8rem;
+  text-align: right;
+
+  div {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.comparison {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  padding-top: 1rem;
 }
 
 .header {
   text-align: center;
+  font-size: 0.8rem;
 }
 
 .graph {
-  margin: 1rem auto;
+  margin: 0 auto;
 }

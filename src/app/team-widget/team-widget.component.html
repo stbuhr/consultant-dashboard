@@ -1,8 +1,6 @@
 <div class="block module">
   <div class="header">
     <h3>{{ title() }}</h3>
-    <div class="self-assessment"></div>
-    <div class="assessment-by-others"></div>
   </div>
   <div class="content">
     @switch (widgetInfo().type) { @case ('TeamCompetenceProfile') {
@@ -12,5 +10,8 @@
     } @case ('TeamTeamrole') {
     <app-team-teamrole-widget></app-team-teamrole-widget>
     } @default { Es kann keine Vorschau angezeigt werden! } }
+  </div>
+  <div class="footer">
+    <a href="{{ widgetInfo().url }}" target="_blank">Mehr anzeigen</a>
   </div>
 </div>
