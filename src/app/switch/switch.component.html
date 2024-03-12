@@ -2,7 +2,12 @@
   <div class="left-wrapper">
     <div class="left-option">{{ leftOption().title }}</div>
   </div>
-  <input type="checkbox" class="switch" (change)="switchChecked($event)" />
+  <input
+    type="checkbox"
+    class="switch"
+    [checked]="value === 'right'"
+    (change)="switchChecked($event)"
+  />
   <div class="right-wrapper">
     <div class="right-option">{{ rightOption().title }}</div>
   </div>

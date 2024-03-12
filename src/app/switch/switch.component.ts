@@ -3,7 +3,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
+  Input,
   Output,
+  effect,
   input,
 } from '@angular/core';
 
@@ -21,15 +23,30 @@ export interface SwitchOption {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwitchComponent {
-  leftOption = input<SwitchOption>({ title: 'Left Option', value: '' });
-  rightOption = input<SwitchOption>({ title: 'Right Option', value: '' });
+  leftOption = input<SwitchOption>({ title: 'Left Option', value: 'left' });
+  rightOption = input<SwitchOption>({ title: 'Right Option', value: 'rigth' });
 
-  @Output() selected = new EventEmitter<string>();
+  @Input() value = 'left';
+  @Output() valueChange = new EventEmitter<string>();
+
+  private checkState = false;
+
+  constructor() {
+    effect(() => {
+      if (this.checkState) {
+        this.value = this.leftOption().value;
+      } else {
+        this.value = this.rightOption().value;
+      }
+      this.valueChange.emit(this.value);
+    });
+  }
 
   switchChecked(event: Event) {
-    const left = (event.target as HTMLInputElement).checked;
-    this.selected.emit(
-      left ? this.rightOption().value : this.leftOption().value
-    );
+    this.checkState = (event.target as HTMLInputElement).checked;
+    this.value = this.checkState
+      ? this.rightOption().value
+      : this.leftOption().value;
+    this.valueChange.emit(this.value);
   }
 }

@@ -1,0 +1,15 @@
+<div class="selection">
+  <app-switch
+    [leftOption]="{ title: 'Bedingungen', value: 'conditions' }"
+    [rightOption]="{
+      title: 'Selbst-/Fremdeinschätzungen',
+      value: 'self-other'
+    }"
+    [(value)]="selectedFilter"
+  ></app-switch>
+  <app-switch
+    [leftOption]="leftComparison()"
+    [rightOption]="rightComparison()"
+    [(value)]="selectedComparison"
+  ></app-switch>
+</div>

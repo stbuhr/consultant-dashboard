@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+
+.selection {
+  font-size: 0.8em;
+  text-align: right;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--dimmed-border);
+}

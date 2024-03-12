@@ -7,16 +7,25 @@ import {
 } from '@angular/core';
 import { TeamTeamroleGraphComponent } from '../team-teamrole-graph/team-teamrole-graph.component';
 import { SwitchComponent, SwitchOption } from '../../switch/switch.component';
+import {
+  Condition,
+  ConditionsSelectorComponent,
+} from '../../conditions-selector/conditions-selector.component';
 
 @Component({
   selector: 'app-team-teamrole-widget',
   standalone: true,
-  imports: [CommonModule, TeamTeamroleGraphComponent, SwitchComponent],
+  imports: [
+    CommonModule,
+    TeamTeamroleGraphComponent,
+    SwitchComponent,
+    ConditionsSelectorComponent,
+  ],
   templateUrl: './team-teamrole-widget.component.html',
   styleUrl: './team-teamrole-widget.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TeamTeamroleWidgetComponent implements OnInit {
+export class TeamTeamroleWidgetComponent {
   leftSelection: SwitchOption = {
     title: 'Selbsteinschätzungen',
     value: 'self',
@@ -27,8 +36,6 @@ export class TeamTeamroleWidgetComponent implements OnInit {
   };
   leftAssessment = signal<string>('Günstige Bedingungen');
   rightAssessment = signal<string>('Schwieirige Bedingungen');
-
-  ngOnInit(): void {}
 
   conditionsSelected(value: string) {
     switch (value) {
@@ -48,5 +55,9 @@ export class TeamTeamroleWidgetComponent implements OnInit {
         this.rightAssessment = signal<string>('Fremdeinschätzungen');
         break;
     }
+  }
+
+  conditionChanged(condition: Condition) {
+    console.log('condition changed', condition);
   }
 }

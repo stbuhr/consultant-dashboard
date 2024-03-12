@@ -37,6 +37,8 @@
   background-color: var(--disabled-background);
 }
 
-.module:hover {
-  scale: 1.02;
+@media (hover: hover) {
+  .module:hover {
+    scale: 1.02;
+  }
 }
