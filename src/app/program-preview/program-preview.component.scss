@@ -27,3 +27,9 @@ h2 {
   padding-left: clamp(0rem, (100% - 360px) / 2, 1rem);
   padding-right: clamp(0rem, (100% - 360px) / 2, 1rem);
 }
+
+@media screen and (max-width: 460px) {
+  :host {
+    margin: 0;
+  }
+}

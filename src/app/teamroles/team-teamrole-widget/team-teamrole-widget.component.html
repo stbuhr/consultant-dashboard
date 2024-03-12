@@ -1,16 +1,20 @@
 <div class="selection">
   <app-switch
-    leftOption="Bedingungen"
-    rightOption="Selbst-/Fremdeinschätzungen"
+    [leftOption]="{ title: 'Bedingungen', value: 'conditions' }"
+    [rightOption]="{
+      title: 'Selbst-/Fremdeinschätzungen',
+      value: 'self-other'
+    }"
+    (selected)="conditionsSelected($event)"
   ></app-switch>
   <app-switch
-    leftOption="Selbsteinschätzungen"
-    rightOption="Fremdeinschätzungen"
+    [leftOption]="leftSelection"
+    [rightOption]="rightSelection"
   ></app-switch>
 </div>
 <div class="comparison">
-  <div class="header">Günstige Bedingungen</div>
-  <div class="header">Schwierige Bedingungen</div>
+  <div class="header">{{ leftAssessment() }}</div>
+  <div class="header">{{ rightAssessment() }}</div>
   <app-team-teamrole-graph class="graph"></app-team-teamrole-graph>
   <app-team-teamrole-graph class="graph"></app-team-teamrole-graph>
 </div>

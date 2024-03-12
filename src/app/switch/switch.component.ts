@@ -1,5 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Output,
+  input,
+} from '@angular/core';
+
+export interface SwitchOption {
+  title: string;
+  value: string;
+}
 
 @Component({
   selector: 'app-switch',
@@ -10,8 +21,15 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SwitchComponent {
-  leftOption = input('Left Option');
-  rightOption = input('Right Option');
+  leftOption = input<SwitchOption>({ title: 'Left Option', value: '' });
+  rightOption = input<SwitchOption>({ title: 'Right Option', value: '' });
 
-  // selected = output<boolean>();
+  @Output() selected = new EventEmitter<string>();
+
+  switchChecked(event: Event) {
+    const left = (event.target as HTMLInputElement).checked;
+    this.selected.emit(
+      left ? this.rightOption().value : this.leftOption().value
+    );
+  }
 }
