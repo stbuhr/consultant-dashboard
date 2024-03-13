@@ -1,20 +1,6 @@
 <app-conditions-selector
   (selectedConditionChanged)="conditionChanged($event)"
 ></app-conditions-selector>
-<!-- <div class="selection">
-  <app-switch
-    [leftOption]="{ title: 'Bedingungen', value: 'conditions' }"
-    [rightOption]="{
-      title: 'Selbst-/Fremdeinschätzungen',
-      value: 'self-other'
-    }"
-    (selected)="conditionsSelected($event)"
-  ></app-switch>
-  <app-switch
-    [leftOption]="leftSelection"
-    [rightOption]="rightSelection"
-  ></app-switch>
-</div> -->
 <div class="comparison">
   <div class="header">{{ leftAssessment() }}</div>
   <div class="header">{{ rightAssessment() }}</div>

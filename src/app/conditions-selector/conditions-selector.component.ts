@@ -24,84 +24,62 @@ export interface Condition {
   styleUrl: './conditions-selector.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ConditionsSelectorComponent implements OnInit {
-  leftSelection: SwitchOption = {
-    title: 'Selbsteinschätzungen',
-    value: 'self',
-  };
-  rightSelection: SwitchOption = {
-    title: 'Fremdeinschätzungen',
-    value: 'other',
-  };
-  comparison = 'normal';
+export class ConditionsSelectorComponent {
   selectedFilter = signal('conditions');
   selectedComparison = signal('normal');
+  leftSelection = signal<SwitchOption>({
+    title: 'Selbsteinschätzungen',
+    value: 'self',
+  });
+  rightSelection = signal<SwitchOption>({
+    title: 'Fremdeinschätzungen',
+    value: 'other',
+  });
+  leftComparison = signal<SwitchOption>({
+    title: 'Selbsteinschätzungen',
+    value: 'self',
+  });
+  rightComparison = signal<SwitchOption>({
+    title: 'Fremdeinschätzungen',
+    value: 'other',
+  });
 
-  leftComparison = computed(() =>
-    this.selectedFilter() === 'conditions'
-      ? { title: 'Selbsteinschätzungen', value: 'self' }
-      : { title: 'Günstige Bedingungen', value: 'normal' }
-  );
-
-  rightComparison = computed(() =>
-    this.selectedFilter() === 'conditions'
-      ? { title: 'Fremdeinschätzungen', value: 'by-others' }
-      : { title: 'Schwierige Bedingungen', value: 'difficult' }
-  );
+  private _filter = 'conditions';
 
   @Output()
   selectedConditionChanged = new EventEmitter<Condition>();
 
   constructor() {
+    effect(
+      () => {
+        this._filter = this.selectedFilter();
+        if (this.selectedFilter() === 'conditions') {
+          this.leftComparison.set({
+            title: 'Selbsteinschätzungen',
+            value: 'self',
+          });
+          this.rightComparison.set({
+            title: 'Fremdeinschätzungen',
+            value: 'other',
+          });
+        } else {
+          this.leftComparison.set({
+            title: 'Normale Bedingungen',
+            value: 'normal',
+          });
+          this.rightComparison.set({
+            title: 'Schwierige Bedingungen',
+            value: 'difficult',
+          });
+        }
+      },
+      { allowSignalWrites: true }
+    );
     effect(() => {
-      console.log('selectedFilter', this.selectedFilter());
-      console.log('selectedComparison', this.selectedComparison());
-
       this.selectedConditionChanged.emit({
-        filter: this.selectedFilter(),
+        filter: this._filter,
         comparison: this.selectedComparison(),
       });
     });
   }
-
-  ngOnInit() {
-    // this.emitConditionChanged();
-  }
-
-  // firstConditionsSelected(value: string) {
-  //   switch (value) {
-  //     case 'conditions':
-  //       this.leftSelection = { title: 'Selbsteinschätzungen', value: 'self' };
-  //       this.rightSelection = { title: 'Fremdeinschätzungen', value: 'other' };
-  //       break;
-  //     case 'self-other':
-  //       this.leftSelection = { title: 'Günstige Bedingungen', value: 'normal' };
-  //       this.rightSelection = {
-  //         title: 'Schwierige Bedingungen',
-  //         value: 'difficult',
-  //       };
-  //       break;
-  //   }
-  //   this.emitConditionChanged();
-  // }
-
-  // secondConditionSelected(value: string) {
-  //   this.comparison = value;
-  //   this.emitConditionChanged();
-  // }
-
-  // emitConditionChanged() {
-  //   this.selectedConditionChanged.emit({
-  //     left: {
-  //       title: this.leftSelection.title,
-  //       filter: this.leftSelection.value,
-  //       comparison: this.comparison,
-  //     },
-  //     right: {
-  //       title: this.rightSelection.title,
-  //       filter: this.rightSelection.value,
-  //       comparison: this.comparison,
-  //     },
-  //   });
-  // }
 }

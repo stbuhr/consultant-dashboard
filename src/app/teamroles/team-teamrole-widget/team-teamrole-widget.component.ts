@@ -26,38 +26,20 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TeamTeamroleWidgetComponent {
-  leftSelection: SwitchOption = {
-    title: 'Selbsteinschätzungen',
-    value: 'self',
-  };
-  rightSelection: SwitchOption = {
-    title: 'Fremdeinschätzungen',
-    value: 'other',
-  };
-  leftAssessment = signal<string>('Günstige Bedingungen');
+  leftAssessment = signal<string>('Normale Bedingungen');
   rightAssessment = signal<string>('Schwieirige Bedingungen');
 
-  conditionsSelected(value: string) {
-    switch (value) {
+  conditionChanged(condition: Condition) {
+    console.log('condition changed', condition);
+    switch (condition.filter) {
       case 'conditions':
-        this.leftSelection = { title: 'Selbsteinschätzungen', value: 'self' };
-        this.rightSelection = { title: 'Fremdeinschätzungen', value: 'other' };
-        this.leftAssessment = signal<string>('Günstige Bedingungen');
+        this.leftAssessment = signal<string>('Normale Bedingungen');
         this.rightAssessment = signal<string>('Schwieirige Bedingungen');
         break;
       case 'self-other':
-        this.leftSelection = { title: 'Günstige Bedingungen', value: 'normal' };
-        this.rightSelection = {
-          title: 'Schwierige Bedingungen',
-          value: 'difficult',
-        };
         this.leftAssessment = signal<string>('Selbsteinschätzungen');
         this.rightAssessment = signal<string>('Fremdeinschätzungen');
         break;
     }
-  }
-
-  conditionChanged(condition: Condition) {
-    console.log('condition changed', condition);
   }
 }

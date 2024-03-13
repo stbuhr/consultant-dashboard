@@ -34,9 +34,9 @@ export class SwitchComponent {
   constructor() {
     effect(() => {
       if (this.checkState) {
-        this.value = this.leftOption().value;
-      } else {
         this.value = this.rightOption().value;
+      } else {
+        this.value = this.leftOption().value;
       }
       this.valueChange.emit(this.value);
     });
