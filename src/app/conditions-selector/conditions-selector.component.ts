@@ -3,9 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
-  OnInit,
   Output,
-  computed,
   signal,
   effect,
 } from '@angular/core';
@@ -43,6 +41,7 @@ export class ConditionsSelectorComponent {
     title: 'Fremdeinschätzungen',
     value: 'other',
   });
+  description = signal<string>('Vergleich der Selbsteinschätzungen');
 
   private _filter = 'conditions';
 
@@ -75,11 +74,37 @@ export class ConditionsSelectorComponent {
       },
       { allowSignalWrites: true }
     );
-    effect(() => {
-      this.selectedConditionChanged.emit({
-        filter: this._filter,
-        comparison: this.selectedComparison(),
-      });
-    });
+    effect(
+      () => {
+        this.selectedConditionChanged.emit({
+          filter: this._filter,
+          comparison: this.selectedComparison(),
+        });
+
+        switch (this._filter) {
+          case 'conditions':
+            switch (this.selectedComparison()) {
+              case 'self':
+                this.description.set('Vergleich der Selbsteinschätzungen');
+                break;
+              case 'other':
+                this.description.set('Vergleich der Fremdeinschätzungen');
+                break;
+            }
+            break;
+          case 'self-other':
+            switch (this.selectedComparison()) {
+              case 'normal':
+                this.description.set('Vergleich unter normalen Bedingungen');
+                break;
+              case 'difficult':
+                this.description.set('Vergleich unter schwierigen Bedingungen');
+                break;
+            }
+            break;
+        }
+      },
+      { allowSignalWrites: true }
+    );
   }
 }
