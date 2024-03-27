@@ -1,0 +1,32 @@
+<div class="statistics-table">
+  <div class="title">Selbsteinschätzungen</div>
+  <div class="graph">
+    <app-statistics-line
+      [ready]="8"
+      [started]="3"
+      [registered]="4"
+      [total]="25"
+    ></app-statistics-line>
+  </div>
+  <div class="title">Fremdeinschätzungen</div>
+  <div class="graph"><app-statistics-line></app-statistics-line></div>
+</div>
+
+<div class="legend">
+  <div class="legend-item">
+    <div class="color ready"></div>
+    <div class="text">Fertiggestellt</div>
+  </div>
+  <div class="legend-item">
+    <div class="color started"></div>
+    <div class="text">Angefangen</div>
+  </div>
+  <div class="legend-item">
+    <div class="color registered"></div>
+    <div class="text">Angemeldet</div>
+  </div>
+  <div class="legend-item">
+    <div class="color"></div>
+    <div class="text">Nicht angemeldet</div>
+  </div>
+</div>

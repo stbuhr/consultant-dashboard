@@ -14,6 +14,11 @@ import { ProgramWidgetType, ProgramWidgetInfo } from '../widget-infos';
 export class ProgramPreviewComponent {
   widgetInfos: ProgramWidgetInfo[] = [
     {
+      title: 'Aktueller Status',
+      type: 'CurrentTeamStatus',
+      url: '#',
+    },
+    {
       title: 'Team-Kompetenzprofil',
       type: 'TeamCompetenceProfile',
       url: '#',

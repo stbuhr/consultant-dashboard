@@ -1,5 +1,6 @@
 export type ProgramWidgetType =
   | 'Unknown'
+  | 'CurrentTeamStatus'
   | 'TeamCompetenceProfile'
   | 'TeamCompetenceAtlas'
   | 'TeamTeamrole';

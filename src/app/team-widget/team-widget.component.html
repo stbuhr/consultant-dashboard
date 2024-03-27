@@ -3,7 +3,9 @@
     <h3>{{ title() }}</h3>
   </div>
   <div class="content">
-    @switch (widgetInfo().type) { @case ('TeamCompetenceProfile') {
+    @switch (widgetInfo().type) { @case ('CurrentTeamStatus') {
+    <app-team-statistics-widget></app-team-statistics-widget>
+    } @case ('TeamCompetenceProfile') {
     <app-team-competence-profile-widget></app-team-competence-profile-widget>
     } @case ('TeamCompetenceAtlas') {
     <app-team-competence-atlas-widget></app-team-competence-atlas-widget>
