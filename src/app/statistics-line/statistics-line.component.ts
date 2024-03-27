@@ -25,4 +25,12 @@ export class StatisticsLineComponent {
   registeredWidth = computed(
     () => `${(this.registered() / this.total()) * 100}%`
   );
+  notRegisteredWidth = computed(
+    () =>
+      `${
+        ((this.total() - this.registered() - this.ready() - this.started()) /
+          this.total()) *
+        100
+      }%`
+  );
 }

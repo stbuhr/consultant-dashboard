@@ -9,24 +9,31 @@
     ></app-statistics-line>
   </div>
   <div class="title">Fremdeinschätzungen</div>
-  <div class="graph"><app-statistics-line></app-statistics-line></div>
+  <div class="graph">
+    <app-statistics-line
+      [ready]="12"
+      [started]="8"
+      [registered]="10"
+      [total]="75"
+    ></app-statistics-line>
+  </div>
 </div>
 
 <div class="legend">
   <div class="legend-item">
     <div class="color ready"></div>
-    <div class="text">Fertiggestellt</div>
+    <div class="text">Fertiggestellt (8 Selbst, 12 Fremd)</div>
   </div>
   <div class="legend-item">
     <div class="color started"></div>
-    <div class="text">Angefangen</div>
+    <div class="text">Angefangen (3 Selbst, 8 Fremd)</div>
   </div>
   <div class="legend-item">
     <div class="color registered"></div>
-    <div class="text">Angemeldet</div>
+    <div class="text">Angemeldet (4 Selbst, 10 Fremd)</div>
   </div>
   <div class="legend-item">
     <div class="color"></div>
-    <div class="text">Nicht angemeldet</div>
+    <div class="text">Nicht angemeldet (10 Selbst, 45 Fremd)</div>
   </div>
 </div>
